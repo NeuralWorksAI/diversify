@@ -1,0 +1,28 @@
+{% extends 'base.html' %}{% block content %}
+<h1 class="p-5 title">Insurafy - Sign Up</h1>
+<form class="form-signin" action="" method="post" novalidate>
+  {{ form.hidden_tag() }}
+  <h1 class="h3 mb-3 font-weight-normal">Create a new account</h1>
+  <div class="form-group">
+    <label for="username">Username:</label>
+    {{ form.username(size=32, class_="form-control", placeholder="Username" ) }}
+  </div>
+  <div class="form-group">
+    <label for="username">Email:</label>
+    {{ form.email(size=32, class_="form-control", placeholder="Email" ) }}
+  </div>
+  <div class="form-group">
+    <label for="username">Password:</label>
+    {{ form.email(size=32, class_="form-control", placeholder="Password" ) }}
+  </div>
+  <div class="form-group">
+    <label for="username">Confirm Password:</label>
+    {{ form.email(size=32, class_="form-control", placeholder="Confirm Password"
+    ) }}
+  </div>
+  <p>{{ form.submit(class="btn btn-lg btn-primary btn-block m-2") }}</p>
+</form>
+<a href="{{ url_for('signin') }}">Already have an account? Sign In</a>
+<p class="mt-5 mb-3 text-muted">© 2021</p>
+<br />
+{% endblock %}

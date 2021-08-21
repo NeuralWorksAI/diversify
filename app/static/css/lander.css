@@ -1,0 +1,22 @@
+.nav-logo {
+  width: 200px;
+  padding: 10px
+}
+
+nav {
+  padding: 0 30px; }
+
+.nav-item {
+  margin: 0 10px; }
+
+.jumbotron {
+  padding: 20vh;
+}
+
+.jumbo-header {
+  font-weight: 500;
+}
+
+.after-wave {
+  background-color: #ff5843;
+}
