@@ -57,3 +57,10 @@ label {
   float: left;
   padding-bottom: 3px;
 }
+
+.error {
+  color: red;
+  text-align: center;
+  margin: auto;
+  padding: 10px 0;
+}
