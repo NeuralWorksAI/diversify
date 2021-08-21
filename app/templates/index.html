@@ -46,24 +46,38 @@
   ></path>
 </svg>
 <div class="container-fluid after-wave py-5">
-  <div class="row gy-5">
+  <div class="row gy-5 align-items-center">
+    <div class="col-6"><div class="col-group p-5">
+      <h2>Same Interests, Different Stories</h2>
+      <p>Diversify uses a special ranking algorithm to match you with people you share similar interests to you, from all around the world.</p>
+    </div></div>
     <div class="col-6">
-      <h2>The new era of insurance</h2>
-      <p>Create new and interesting insurance ideas</p>
+      <div class="col-group p-5">
+        <img class="col-image" src="../static/img/high-five.svg"
+        />
+    </div>
     </div>
     <div class="col-6">
-      <h2>The new era of insurance</h2>
-      <p>Create new and interesting insurance ideas</p>
-    </div>
-    <div class="w-100"></div>
-    <div class="col-6">
-      <h2>The new era of insurance</h2>
-      <p>Create new and interesting insurance ideas</p>
-    </div>
-    <div class="col-6">
-      <h2>The new era of insurance</h2>
-      <p>Create new and interesting insurance ideas</p>
+      <div class="col-group p-5">
+        <img class="col-image" src="../static/img/accessibility.svg"
+  />
     </div>
   </div>
-  {% endblock %}
+    <div class="col-6">
+      <div class="col-group p-5">
+      <h2>A platform for everyone</h2>
+      <p>To promote accesibility in our platform, Diversify features custom voice recordings from users and text voicovers by the creators!</p>
+    </div>
+  </div>
+  </div>
+  <footer class="footer-basic">
+    <ul class="list-inline">
+      <li class="list-inline-item"><a href="#">About</a></li>
+      <li class="list-inline-item"><a href="#">Devpost</a></li>
+      <li class="list-inline-item"><a href="{{url_for('signin')}}">Sign In</a></li>
+      <li class="list-inline-item"><a href="{{url_for('signup')}}">Sign Up</a></li>
+    </ul>
+    <p class="copyright">A NeuralWorks project for Hack The 6 © 2021</p>
+  </footer>
 </div>
+  {% endblock %}
