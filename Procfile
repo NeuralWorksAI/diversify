@@ -1,1 +1,1 @@
-web: gunicorn diversifyme-online:app
+web: gunicorn main:app
