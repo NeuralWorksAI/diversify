@@ -49,7 +49,7 @@ def signup():
         if mydb.users.find_one({'username': username}):
             flash('Username already taken')
             return redirect(url_for('signup'))
-        mydb.users.insert_one({"username": username, "email": email, "password": password})
+        mydb.users.insert_one({"username": username, "email": email, "password": password, "name": "", "age": "", "country": "", "occupation": "", "myers": "", "interests":"", "sports": "", "songs": "","languages": "", "food": "","gender": "", "ethnicity": "", "class": "", "university": "", "complete": ""})
         assignSession(username)
         return redirect(url_for('dashboard'))
     return render_template("signup.html", form=form)
@@ -58,14 +58,15 @@ def signup():
 def dashboard():
     if not 'username' in session:
         return redirect(url_for('signin'))
-    elif not 'formComplete' in session:
+    user = mydb.users.find_one({'username': session['username']})
+    if user['complete'] != 'true':
         return redirect(url_for('startform'))
     else:
-        users = mydb.users.find({},{"_id":0})
-        print(users)
-        users = [user for user in users]
-        print(users)
-    return render_template("dashboard.html", session=session)
+        users = mydb.users.find( { "username": { "$ne" : session['username'] }} )
+        user_array = [user for user in users]
+        me = mydb.users.find_one({'username': session['username']});
+        scores = match(me, user_array)
+    return render_template("dashboard.html", session=session, scores)
 
 @app.route("/form/start")
 def startform():
@@ -90,9 +91,10 @@ def formone():
         myers = form.myers.data
         interests = form.interests.data
         sports = form.sports.data
+        songs = form.songs.data
         languages = form.languages.data
         food = form.food.data
-        mydb.users.update_one({"username": session['username']},{"$set": {"myers": myers, "interests": interests, "sports": sports, "languages": languages, "food": food}})
+        mydb.users.update_one({"username": session['username']},{"$set": {"myers": myers, "interests": interests, "sports": sports, "songs": songs, "languages": languages, "food": food}})
         return redirect(url_for('formtwo'))
     return render_template("formone.html", session=session, form=form)
 
@@ -104,7 +106,7 @@ def formtwo():
         ethnicity = form.ethnicity.data
         social = form.social.data
         university = form.university.data
-        mydb.users.update_one({"username": session['username']},{"$set" :{"gender": gender, "ethnicity": ethnicity, "social": social, "university": university}})
+        mydb.users.update_one({"username": session['username']},{"$set" :{"gender": gender, "ethnicity": ethnicity, "class": social, "university": university, "complete": "true"}})
         session["formComplete"] = True
         return redirect(url_for('dashboard'))
     return render_template("formtwo.html", session=session, form=form)
