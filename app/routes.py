@@ -9,7 +9,7 @@ from app.forms import LoginForm, RegisterForm, FormOne, FormZero, FormTwo
 from flask import render_template, session, request, redirect, url_for, flash, jsonify
 from os import getenv
 from pymongo import MongoClient
-from matchalgo import match
+from matchalgo import match, stats
 from dotenv import load_dotenv
 load_dotenv()
 
@@ -111,3 +111,12 @@ def formtwo():
         session["formComplete"] = True
         return redirect(url_for('dashboard'))
     return render_template("formtwo.html", session=session, form=form)
+
+@app.route("/mystats")
+def mystats():
+    users = mydb.users.find( { "username": { "$ne" : session['username'] }} )
+    user_array = [user for user in users]
+    me = mydb.users.find_one({'username': session['username']});
+    scores = match(me, user_array)
+    data = stats(me, scores)
+    return render_template("data.html", data=data)

@@ -1,7 +1,14 @@
 {% extends 'base.html' %}{% block content %}{% include 'dashnav.html' %}
 <div class="full-main">
-  <h1>My stats</h1>
-  <p>Good Matches:</p>
-  <p>Countries:</p>
+  <br /><br /><br />
+  <div class="stat-box">
+    <h1>My Stats With Potential Matches</h1>
+    <div class="mystats">
+      <p>Good Matches: {{data[0]}}</p>
+      <p>Different Countries: {{data[1]}}</p>
+      <p>Different Genders: {{data[2]}}</p>
+      <p>Different Ethnicities: {{data[3]}}</p>
+    </div>
+  </div>
 </div>
 {%endblock %}
