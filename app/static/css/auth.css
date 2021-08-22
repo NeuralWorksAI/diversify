@@ -64,3 +64,13 @@ label {
   margin: auto;
   padding: 10px 0;
 }
+
+.progress {
+  margin: 0 100px;
+  max-width: 100%;
+  margin-bottom: 50px;
+}
+
+.progress-bar {
+  background-color: #333333 !important;
+}

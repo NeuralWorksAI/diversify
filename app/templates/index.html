@@ -16,10 +16,15 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarNav">
     <div class="nav navbar-nav ms-auto mx-3 navbar-right">
-      <a class="nav-item nav-link text-center" href="{{ url_for('index') }}">Devpost</a>
-      <a class="nav-item nav-link text-center" href="{{ url_for('index') }}">About</a>
+      <a class="nav-item nav-link text-center" href="{{ url_for('index') }}"
+        >Devpost</a
+      >
+      <a class="nav-item nav-link text-center" href="{{ url_for('index') }}"
+        >About</a
+      >
       <a
         class="btn btn-outline-dark m-2 my-sm-0"
+        onclick="playAudio('dashhero')"
         href="{{ url_for('signin') }}"
       >
         Sign In
@@ -27,15 +32,17 @@
     </div>
   </div>
 </nav>
-<div class="jumbotron jumbotron-fluid">
+<div class="jumbotron jumbotron-fluid" onclick="playAudio('dashhero')">
   <div class="container">
-    <h1 class="display-2 jumbo-header">A new, inclusive way to find new friends.</h1>
+    <h1 class="display-2 jumbo-header">
+      A new, inclusive way to find new friends. <i class="fas fa-volume-up"></i>
+    </h1>
     <a
-    class="btn btn-dark btn-lg my-2 my-sm-0 lead"
-    href="{{ url_for('signup') }}"
-  >
-    Start Now 
-  </a>
+      class="btn btn-dark btn-lg my-2 my-sm-0 lead"
+      href="{{ url_for('signup') }}"
+    >
+      Start Now
+    </a>
   </div>
 </div>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
@@ -47,37 +54,55 @@
 </svg>
 <div class="container-fluid after-wave py-5">
   <div class="row gy-5 align-items-center">
-    <div class="col-6"><div class="col-group p-5"  data-aos="fade-up">
-      <h2>Same Interests, Different Stories</h2>
-      <p>Diversify uses a special ranking algorithm to match you with people you share similar interests to you, from all around the world.</p>
-    </div></div>
     <div class="col-6">
-      <div class="col-group p-5"  data-aos="fade-up">
-        <img class="col-image" src="../static/img/high-five.svg"
-        />
-    </div>
+      <div
+        class="col-group p-5"
+        data-aos="fade-up"
+        onclick="playAudio('interests')"
+      >
+        <h2>Same Interests, Different Stories</h2>
+        <p>
+          Diversify uses a special ranking algorithm to match you with people
+          you share similar interests to you, from all around the world.
+        </p>
+      </div>
     </div>
     <div class="col-6">
-      <div class="col-group p-5"  data-aos="fade-up">
-        <img class="col-image" src="../static/img/accessibility.svg"
-  />
+      <div class="col-group p-5" data-aos="fade-up">
+        <img class="col-image" src="../static/img/high-five.svg" />
+      </div>
     </div>
-  </div>
     <div class="col-6">
-      <div class="col-group p-5"  data-aos="fade-up">
-      <h2>A platform for everyone</h2>
-      <p>To promote accesibility in our platform, Diversify features custom voice recordings from users and text voicovers by the creators!</p>
+      <div class="col-group p-5" data-aos="fade-up">
+        <img class="col-image" src="../static/img/accessibility.svg" />
+      </div>
     </div>
-  </div>
+    <div class="col-6">
+      <div
+        class="col-group p-5"
+        data-aos="fade-up"
+        onclick="playAudio('platform')"
+      >
+        <h2>A platform for everyone</h2>
+        <p>
+          To promote accesibility in our platform, Diversify features custom
+          voice recordings from users and text voicovers by the creators!
+        </p>
+      </div>
+    </div>
   </div>
   <footer class="footer-basic">
     <ul class="list-inline">
       <li class="list-inline-item"><a href="#">About</a></li>
       <li class="list-inline-item"><a href="#">Devpost</a></li>
-      <li class="list-inline-item"><a href="{{url_for('signin')}}">Sign In</a></li>
-      <li class="list-inline-item"><a href="{{url_for('signup')}}">Sign Up</a></li>
+      <li class="list-inline-item">
+        <a href="{{url_for('signin')}}">Sign In</a>
+      </li>
+      <li class="list-inline-item">
+        <a href="{{url_for('signup')}}">Sign Up</a>
+      </li>
     </ul>
     <p class="copyright">A NeuralWorks project for Hack The 6 © 2021</p>
   </footer>
 </div>
-  {% endblock %}
+{% endblock %}

@@ -1,37 +1,38 @@
 {% extends 'base.html' %}{% block content %}{% include 'dashnav.html' %}
 <div class="full-main">
   <h1>The Basics</h1>
-  <div class="progress">
-    <div
-      class="progress-bar bg-success"
-      role="progressbar"
-      style="width: 25%"
-      aria-valuenow="25"
-      aria-valuemin="0"
-      aria-valuemax="100"
-    ></div>
-  </div>
+
   <form class="form-signin pt-5" action="" method="post" novalidate>
     {{ form.hidden_tag() }}
     <h5>All inputs are optional.</h5>
-    <div class="form-group">
+    <div class="form-group" onclick="playAudio('name')">
       <label for="username">Name:</label>
       {{ form.name(size=32, class_="form-control", placeholder="Name" ) }}
     </div>
-    <div class="form-group">
+    <div class="form-group" onclick="playAudio('age')">
       <label for="username">Age:</label>
       {{ form.age(size=32, class_="form-control", placeholder="Age" ) }}
     </div>
-    <div class="form-group">
+    <div class="form-group" onclick="playAudio('country')">
       <label for="username">Country:</label>
       {{ form.country(size=32, class_="form-control", placeholder="Country" ) }}
     </div>
-    <div class="form-group">
+    <div class="form-group" onclick="playAudio('occupation')">
       <label for="occupation">Occupation:</label>
       {{ form.occupation(size=32, class_="form-control",
       placeholder="Occupation" ) }}
     </div>
     <p>{{ form.submit(class="btn btn-lg btn-dark btn-block m-2") }}</p>
   </form>
+  <div class="progress">
+    <div
+      class="progress-bar"
+      role="progressbar"
+      aria-valuenow="0"
+      aria-valuemin="0"
+      aria-valuemax="100"
+    ></div>
+  </div>
+  <br />
 </div>
 {% endblock %}
