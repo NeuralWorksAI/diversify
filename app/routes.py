@@ -1,3 +1,9 @@
+import os
+import sys
+
+file_dir = os.path.dirname(__file__)
+sys.path.append(file_dir)
+
 from app import app
 from app.forms import LoginForm, RegisterForm, FormOne, FormZero, FormTwo
 from flask import render_template, session, request, redirect, url_for, flash, jsonify
@@ -56,6 +62,9 @@ def dashboard():
         return redirect(url_for('startform'))
     else:
         users = mydb.users.find({},{"_id":0})
+        print(users)
+        users = [user for user in users]
+        print(users)
     return render_template("dashboard.html", session=session)
 
 @app.route("/form/start")
@@ -70,7 +79,7 @@ def formzero():
         age = form.age.data
         country = form.country.data
         occupation = form.occupation.data
-        mydb.users.insert_one({"username": session['username']},{"name": name, "age": age, "country": country, "occupation": occupation})
+        mydb.users.update_one({"username": session['username']}, { "$set" : {"name": name, "age": age, "country": country, "occupation": occupation}})
         return redirect(url_for('formone'))
     return render_template("formzero.html", form=form, session=session)
 
@@ -83,7 +92,7 @@ def formone():
         sports = form.sports.data
         languages = form.languages.data
         food = form.food.data
-        mydb.users.insert_one({"username": session['username']},{"myers": myers, "interests": interests, "sports": sports, "languages": languages, "food": food})
+        mydb.users.update_one({"username": session['username']},{"$set": {"myers": myers, "interests": interests, "sports": sports, "languages": languages, "food": food}})
         return redirect(url_for('formtwo'))
     return render_template("formone.html", session=session, form=form)
 
@@ -95,7 +104,7 @@ def formtwo():
         ethnicity = form.ethnicity.data
         social = form.social.data
         university = form.university.data
-        mydb.users.insert_one({"username": session['username']},{"gender": gender, "ethnicity": ethnicity, "social": social, "university": university})
+        mydb.users.update_one({"username": session['username']},{"$set" :{"gender": gender, "ethnicity": ethnicity, "social": social, "university": university}})
         session["formComplete"] = True
         return redirect(url_for('dashboard'))
     return render_template("formtwo.html", session=session, form=form)
