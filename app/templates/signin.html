@@ -6,19 +6,19 @@
     /></a>
     {{ form.hidden_tag() }}
     <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
-    <div onclick="playAudio('username')">
+    <div ondblclick="playAudio('username')">
       {{ form.username(size=32, class_="form-control form-username",
       placeholder="Username" ) }} {% for error in form.username.errors %}
       <span style="color: red">[{{ error }}]</span>
       {% endfor %}
     </div>
-    <div onclick="playAudio('password')">
+    <div ondblclick="playAudio('password')">
       {{ form.password(size=32, class_="form-control form-password",
       placeholder="Password" ) }} {% for error in form.username.errors %}
       <span style="color: red">[{{ error }}]</span>
       {% endfor %}
     </div>
-    <div class="checkbox mb-3" onclick="playAudio('remember')">
+    <div class="checkbox mb-3" ondblclick="playAudio('remember')">
       <label> <input type="checkbox" value="remember-me" /> Remember me </label>
     </div>
     <br />

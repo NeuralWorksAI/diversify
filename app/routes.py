@@ -3,6 +3,7 @@ from app.forms import LoginForm, RegisterForm, FormOne, FormZero, FormTwo
 from flask import render_template, session, request, redirect, url_for, flash, jsonify
 from os import getenv
 from pymongo import MongoClient
+from matchalgo import match
 from dotenv import load_dotenv
 load_dotenv()
 
@@ -53,6 +54,8 @@ def dashboard():
         return redirect(url_for('signin'))
     elif not 'formComplete' in session:
         return redirect(url_for('startform'))
+    else:
+        users = mydb.users.find({},{"_id":0})
     return render_template("dashboard.html", session=session)
 
 @app.route("/form/start")

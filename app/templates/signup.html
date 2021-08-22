@@ -6,21 +6,21 @@
     /></a>
     {{ form.hidden_tag() }}
     <h1 class="h3 mb-3 font-weight-normal">Create a new account</h1>
-    <div class="form-group" onclick="playAudio('username')">
+    <div class="form-group" ondblclick="playAudio('username')">
       <label for="username">Username:</label>
       {{ form.username(size=32, class_="form-control", placeholder="Username" )
       }}
     </div>
-    <div class="form-group" onclick="playAudio('email')">
+    <div class="form-group" ondblclick="playAudio('email')">
       <label for="username">Email:</label>
       {{ form.email(size=32, class_="form-control", placeholder="Email" ) }}
     </div>
-    <div class="form-group" onclick="playAudio('password')">
+    <div class="form-group" ondblclick="playAudio('password')">
       <label for="username">Password:</label>
       {{ form.password(size=32, class_="form-control", placeholder="Password" )
       }}
     </div>
-    <div class="form-group" onclick="playAudio('confirmpassword')">
+    <div class="form-group" ondblclick="playAudio('confirmpassword')">
       <label for="username">Confirm Password:</label>
       {{ form.confirmPassword(size=32, class_="form-control",
       placeholder="Confirm Password" ) }}

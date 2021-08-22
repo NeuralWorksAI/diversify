@@ -3,33 +3,33 @@
   <h1>Your Personality</h1>
   <form class="form-signin pt-5" action="" method="post" novalidate>
     {{ form.hidden_tag() }}
-    <div class="form-group" onclick="playAudio('myers')">
+    <div class="form-group" ondblclick="playAudio('myers')">
       <label for="username">Myers–Briggs:</label>
       {{ form.myers(size=32, class_="form-control", placeholder="INTP" ) }}
     </div>
-    <div class="form-group" onclick="playAudio('int')">
+    <div class="form-group" ondblclick="playAudio('int')">
       <label for="username">Interests:</label>
       {{ form.interests(size=32, class_="form-control", placeholder="Baking" ) }}
     </div>
-    <div class="form-group" onclick="playAudio('sports')">
+    <div class="form-group" ondblclick="playAudio('sports')">
       <label for="username">Sports:</label>
       {{ form.sports(size=32, class_="form-control", placeholder="Soccer" ) }}
     </div>
-    <div class="form-group" onclick="playAudio('songs')">
+    <div class="form-group" ondblclick="playAudio('songs')">
       <label for="username">Songs:</label>
       {{ form.songs(size=32, class_="form-control", placeholder="T Swift" ) }}
     </div>
-    <div class="form-group" onclick="playAudio('lang')">
+    <div class="form-group" ondblclick="playAudio('lang')">
       <label for="username">Languages:</label>
       {{ form.languages(size=32, class_="form-control",
       placeholder="French" ) }}
     </div>
-    <div class="form-group" onclick="playAudio('food')">
+    <div class="form-group" ondblclick="playAudio('food')">
       <label for="username">Favourite Food:</label>
       {{ form.food(size=32, class_="form-control",
       placeholder="Apples" ) }}
     </div>
-    <div class="form-group" onclick="playAudio('otheract')">
+    <div class="form-group" ondblclick="playAudio('otheract')">
       <label for="username">Other Activities:</label>
       {{ form.otherActivities(size=32, class_="form-control",
       placeholder="Exploring" ) }}
