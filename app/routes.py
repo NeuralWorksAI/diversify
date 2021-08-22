@@ -1,5 +1,5 @@
 from app import app
-from app.forms import LoginForm, RegisterForm
+from app.forms import LoginForm, RegisterForm, FormOne, FormZero, FormTwo
 from flask import render_template, session, request, redirect, url_for, flash, jsonify
 from os import getenv
 from pymongo import MongoClient
@@ -58,3 +58,18 @@ def dashboard():
 @app.route("/form/start")
 def startform():
     return render_template("startform.html", session=session)
+
+@app.route("/form/0", methods=['GET', 'POST'])
+def formzero():
+    form=FormZero()
+    return render_template("formzero.html", progess="0", form=form, session=session)
+
+@app.route("/form/1", methods=['GET', 'POST'])
+def formone():
+    form=FormOne()
+    return render_template("formone.html", progress="33", session=session, form=form)
+
+@app.route("/form/2", methods=['GET', 'POST'])
+def formtwo():
+    form=FormTwo()
+    return render_template("formtwo.html", progress="66", session=session, form=form)

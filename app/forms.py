@@ -14,3 +14,27 @@ class RegisterForm(FlaskForm):
     password = PasswordField('Password', validators=[DataRequired()])
     confirmPassword = PasswordField('Confirm Password', validators=[DataRequired()])
     submit = SubmitField('Sign Up')
+
+class FormZero(FlaskForm):
+    name = StringField('Name')
+    age = StringField('Age')
+    country = StringField('Country')
+    occupation = StringField('Occupation')
+    submit = SubmitField('Next')
+
+class FormOne(FlaskForm):
+    myers = StringField('Myers')
+    interests = StringField('Interests')
+    sports = StringField('Sports')
+    songs = StringField('Songs')
+    languages = StringField('Languages')
+    food = StringField('Food')
+    otherActivities = StringField('OtherActivities')
+    submit = SubmitField('Next')
+
+class FormTwo(FlaskForm):
+    gender = StringField('Gender')
+    ethnicity = StringField('Ethnicity')
+    socialClass = StringField('Socialclass')
+    university = StringField('University')
+    submit = SubmitField('Finish')
