@@ -35,6 +35,6 @@ class FormOne(FlaskForm):
 class FormTwo(FlaskForm):
     gender = StringField('Gender')
     ethnicity = StringField('Ethnicity')
-    socialClass = StringField('Socialclass')
+    social = StringField('Socialclass')
     university = StringField('University')
     submit = SubmitField('Finish')

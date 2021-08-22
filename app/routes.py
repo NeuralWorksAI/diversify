@@ -62,14 +62,37 @@ def startform():
 @app.route("/form/0", methods=['GET', 'POST'])
 def formzero():
     form=FormZero()
+    if form.validate_on_submit():
+        name = form.name.data
+        age = form.age.data
+        country = form.country.data
+        occupation = form.occupation.data
+        mydb.users.insert_one({"username": session['username']},{"name": name, "age": age, "country": country, "occupation": occupation})
+        return redirect(url_for('formone'))
     return render_template("formzero.html", progess="0", form=form, session=session)
 
 @app.route("/form/1", methods=['GET', 'POST'])
 def formone():
     form=FormOne()
+    if form.validate_on_submit():
+        myers = form.myers.data
+        interests = form.interests.data
+        sports = form.sports.data
+        languages = form.languages.data
+        food = form.food.data
+        mydb.users.insert_one({"username": session['username']},{"myers": myers, "interests": interests, "sports": sports, "languages": languages, "food": food})
+        return redirect(url_for('formtwo'))
     return render_template("formone.html", progress="33", session=session, form=form)
 
 @app.route("/form/2", methods=['GET', 'POST'])
 def formtwo():
     form=FormTwo()
+    if form.validate_on_submit():
+        gender = form.gender.data
+        ethnicity = form.ethnicity.data
+        social = form.social.data
+        university = form.university.data
+        mydb.users.insert_one({"username": session['username']},{"gender": gender, "ethnicity": ethnicity, "social": social, "university": university})
+        session["formComplete"] = True
+        return redirect(url_for('dashboard'))
     return render_template("formtwo.html", progress="66", session=session, form=form)
