@@ -33,6 +33,7 @@ def signin():
             return redirect(url_for('dashboard'))
         else:
             flash('Invalid username or password')
+        assignSession(form.username.data)
     return render_template("signin.html", form=form)
 
 @app.route('/signup', methods=['GET', 'POST'])
@@ -66,7 +67,7 @@ def dashboard():
         user_array = [user for user in users]
         me = mydb.users.find_one({'username': session['username']});
         scores = match(me, user_array)
-    return render_template("dashboard.html", session=session, scores)
+    return render_template("dashboard.html", session=session, scores=scores)
 
 @app.route("/form/start")
 def startform():

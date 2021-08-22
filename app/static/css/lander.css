@@ -1,21 +1,23 @@
 .nav-logo {
   width: 200px;
-  padding: 10px
+  padding: 10px;
 }
 
 nav {
-  padding: 0 30px; }
+  padding: 0 30px;
+}
 
 .nav-item {
-  margin: 0 10px; }
+  margin: 0 10px;
+}
 
 .jumbotron {
   padding: 20vh;
   -webkit-animation: fadein 1s; /* Safari, Chrome and Opera > 12.1 */
   -moz-animation: fadein 1s; /* Firefox < 16 */
-   -ms-animation: fadein 1s; /* Internet Explorer */
-    -o-animation: fadein 1s; /* Opera < 12.1 */
-       animation: fadein 1s;
+  -ms-animation: fadein 1s; /* Internet Explorer */
+  -o-animation: fadein 1s; /* Opera < 12.1 */
+  animation: fadein 1s;
 }
 
 .jumbo-header {
@@ -26,7 +28,8 @@ nav {
   background-color: #ff5843;
 }
 
-.after-wave p, .after-wave h2{
+.after-wave p,
+.after-wave h2 {
   color: #fff;
 }
 
@@ -44,7 +47,6 @@ nav {
   font-weight: 600;
 }
 
-
 .col-group {
   max-width: 80%;
   margin: auto;
@@ -58,4 +60,19 @@ nav {
 .footer-basic {
   padding: 20px;
   margin-top: 50px;
+}
+
+.card {
+  max-width: 50%;
+  margin: 20px auto;
+}
+
+.card-match {
+  margin: 30px 70px;
+  text-align: left;
+}
+
+.card-match p,
+.card-match a {
+  font-size: 20px;
 }

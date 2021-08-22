@@ -1,3 +1,25 @@
 {% extends 'base.html' %}{% block content %}{% include 'dashnav.html' %}
-<h1>Welcome Back, {{session['username']}}</h1>
-{% endblock %}
+<div class="full-main">
+  <h1>Welcome Back, {{session['username']}}</h1>
+
+  <h4>Your potential matches</h4>
+  <br />
+  {% for person in scores %}
+  <div class="card">
+    <div class="card-body card-match">
+      <p>Name: {{person[0][2]}}</p>
+      <p>compatibility: {{person[1]}}</p>
+      <p>
+        Common Interests: {% for interest in person[2] %}{{interest}}, {% endfor
+        %}
+      </p>
+      <a
+        style="text-decoration: none"
+        target="_blank"
+        href="mailto:{{ person[0][1] }}"
+        >Message <i class="fas fa-comment-dots"></i
+      ></a>
+    </div>
+  </div>
+</div>
+{% endfor %} {% endblock %}
